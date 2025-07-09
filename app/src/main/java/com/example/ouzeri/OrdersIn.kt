@@ -1,5 +1,6 @@
 package com.example.ouzeri
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -83,6 +84,7 @@ class OrdersIn : AppCompatActivity() {
 
             //center button
             centerBtn = TextView(this).apply {
+                setTextColor(Color.BLACK)
                 text = "${item.name} - ${pendingQuantities[item.name]}"
                 textSize = 18f
                 gravity = Gravity.CENTER
@@ -132,7 +134,8 @@ class OrdersIn : AppCompatActivity() {
                 }
                 Toast.makeText(context, "All quantities applied", Toast.LENGTH_SHORT).show()
 
-                finish()
+                val intent = Intent(this@OrdersIn, MainActivity::class.java)
+                startActivity(intent)
             }
         }
 
