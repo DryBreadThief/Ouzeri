@@ -7,8 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".OrdersIn">
 
-
+    <!--  Orders In TextView  -->
     <TextView
+        android:id="@+id/OrderTextView"
         android:text="Orders In"
         android:textAlignment="center"
 
@@ -23,6 +24,86 @@
 
         app:layout_constraintVertical_bias="0"
         app:layout_constraintHorizontal_bias="0" />
+
+
+    <!--  Vertical Layout of the Table and the Time of the order  -->
+    <LinearLayout
+        android:id="@+id/TableView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        app:layout_constraintTop_toBottomOf="@+id/OrderTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="20dp"
+        android:paddingHorizontal="20dp">
+
+        <!-- Table -->
+        <TextView
+            android:id="@+id/tableTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Table:"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_weight="1"
+            >
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/tableTextView"
+            android:ems="3"
+            android:layout_weight="1"
+            android:maxLength="10">
+
+        </EditText>
+
+        <Space
+            android:layout_width="100dp"
+            android:layout_height="match_parent"/>
+
+        <!--  Time  -->
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time:"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/timeTextView"
+            android:ems="3"
+            android:layout_weight="1">
+        </EditText>
+    </LinearLayout>
+
+
+
+    <!--  Scroll View of the dishes  -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@+id/TableView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/orderContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+        </LinearLayout>
+    </ScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
